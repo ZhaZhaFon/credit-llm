@@ -1,0 +1,18 @@
+DOWNLOAD_PATH=/mnt/download # 下载目录
+FESS_PATH=/mnt/download/fess-14.7.0 # Fess安装包
+
+echo "# 安装JDK 17"
+apt update
+apt install openjdk-17-jdk -y
+java -version
+echo '#'
+
+# 参考 https://fess.codelibs.org/quick-start.html
+echo "# 运行Fess"
+cd $FESS_PATH/bin
+./fess -d
+echo "### 打开页面并登陆 http://localhost:8080/admin/ (初始账号密码均为admin或1234567)"
+echo "### 左侧边栏 Crawler - File System - Create New"
+echo "### Paths配置为files://搜索范围的绝对地址 (e.g. files:///mnt/) - Name 命名 - Create new job"
+echo "### System - Scheduler - 点击上面创建的crawler - Start now"
+echo '#'
